@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [startTime, setStartTime] = useState(null);
+  const [count, setCount] = useState(null);
 
   const handleCount = () => {
-    setStartTime(Date.now());
+    // setCount((count) => count + 1);
+    setCount(Date.now());
   };
+
+  useEffect(() => {
+    setTimeout(handleCount, 1);
+  }, [handleCount]);
+
   return (
     <div className="App">
       <div>Stopwatch App</div>
-      <button onClick={handleCount}>{startTime}</button>
+      <button onClick={() => handleCount()}>{count}</button>
     </div>
   );
 }
