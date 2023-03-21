@@ -2,21 +2,26 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [stopTime, setStopTime] = useState(null);
 
-  const handleCount = () => {
-    // setCount((count) => count + 1);
-    setCount(Date.now());
+  const handleStartTime = () => {
+    setStartTime(Date.now());
   };
-
+  const handleStopTime = () => {
+    setStopTime(startTime);
+  };
   useEffect(() => {
-    setTimeout(handleCount, 1);
-  }, [handleCount]);
+    setTimeout(handleStartTime, 10000000);
+  }, [handleStartTime, handleStopTime]);
 
   return (
     <div className="App">
       <div>Stopwatch App</div>
-      <button onClick={() => handleCount()}>{count}</button>
+      <button>{startTime}</button>
+      <button onClick={handleStopTime}>{`Timer: ${stopTime}`}</button>
+      {/*Criar divs com as laps do timer*/}
+      {/* <button onClick={() => handleCount()}>{count}</button> */}
     </div>
   );
 }
