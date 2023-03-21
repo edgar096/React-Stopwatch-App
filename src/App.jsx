@@ -1,16 +1,21 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [startTime, setStartTime] = useState(null);
 
+  const handleCount = () => {
+    setStartTime(Date.now());
+  };
   return (
     <div className="App">
       <div>Stopwatch App</div>
+      <button onClick={handleCount}>{startTime}</button>
     </div>
   );
 }
 
+//App structure:
+//--Two Buttons: start and pause/resume
+//--Lap Button(?): takes snapshot of time
 export default App;
