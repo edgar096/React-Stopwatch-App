@@ -1,19 +1,14 @@
 // const RecordedLaps = () {
 //   return(
 
+import { useState, useEffect } from 'react';
 import Lap from '../../UI/Lap/Lap';
 
-//   )
-// }
-
-//Pass down recorded times trough a array (might save to localstorage)
-//Map the array and if "Lap Button clicked", add new time and render it
-
-const RecordedLaps = () => {
+const RecordedLaps = ({ timer }) => {
   const lapTime = '00:00:213';
   return (
     <ul>
-      <li>{`Lap Recorded: ${lapTime}`}</li>
+      <li>{`Lap Recorded: ${timer}`}</li>
     </ul>
   );
 };
