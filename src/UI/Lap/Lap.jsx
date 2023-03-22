@@ -1,6 +1,5 @@
 const Lap = () => {
-  const lapTime = '00:00:213';
-  return <li>{`Lap Recorded: ${lapTime}`}</li>;
+  return <li>{'test'}</li>;
 };
 
 export default Lap;

@@ -6,24 +6,29 @@ import Card from './UI/Card/Card';
 import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
 
 function App() {
-  const [timer, setTimer] = useState(0);
-
-  const handleTimer = () => {
-    setTimer(timer + 1);
+  const [startTime, setStartTime] = useState(null);
+  const [now, setNow] = useState(null);
+  //secondsPassed = (now - startTime) / 1000
+  const handleStart = () => {
+    setStartTime(Date.now());
+    setNow(Date.now());
+    setInterval(() => {
+      setNow(Date.now());
+    }, 1);
   };
-  useEffect(() => {
-    setTimeout(handleTimer, 1000);
-  }, [handleTimer]);
-
+  let secondsPassed = 0;
+  if (startTime != null && now != null) {
+    secondsPassed = (now - startTime) / 1000;
+  }
   return (
     <div className="App">
       <div>Stopwatch App</div>
       <Card>
-        <div>{timer}</div>
+        <div>{secondsPassed}</div>
         <RecordedLaps />
       </Card>
       <Card>
-        <StartButton />
+        <StartButton handleStart={handleStart} />
         <PauseButton />
       </Card>
     </div>

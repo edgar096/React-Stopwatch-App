@@ -1,7 +1,7 @@
-const StartButton = () => {
+const StartButton = ({ handleStart }) => {
   return (
     <div>
-      <button>Start Timer</button>
+      <button onClick={handleStart}>Start Timer</button>
     </div>
   );
 };

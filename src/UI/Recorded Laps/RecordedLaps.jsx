@@ -1,14 +1,12 @@
 // const RecordedLaps = () {
 //   return(
 
-import { useState, useEffect } from 'react';
 import Lap from '../../UI/Lap/Lap';
 
-const RecordedLaps = ({ timer }) => {
-  const lapTime = '00:00:213';
+const RecordedLaps = () => {
   return (
     <ul>
-      <li>{`Lap Recorded: ${timer}`}</li>
+      <Lap />
     </ul>
   );
 };
