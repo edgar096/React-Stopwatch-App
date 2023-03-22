@@ -16,6 +16,10 @@ function App() {
       setNow(Date.now());
     }, 1);
   };
+
+  const handlePause = () => {
+    setInterval(secondsPassed);
+  };
   let secondsPassed = 0;
   if (startTime != null && now != null) {
     secondsPassed = (now - startTime) / 1000;
@@ -29,7 +33,7 @@ function App() {
       </Card>
       <Card>
         <StartButton handleStart={handleStart} />
-        <PauseButton />
+        <PauseButton handlePause={handlePause} />
       </Card>
     </div>
   );

@@ -1,7 +1,7 @@
-const PauseButton = () => {
+const PauseButton = ({ handlePause }) => {
   return (
     <div>
-      <button>Pause Timer</button>
+      <button onClick={handlePause}>Pause Timer</button>
     </div>
   );
 };
