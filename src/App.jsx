@@ -1,27 +1,44 @@
 import { useEffect, useState } from 'react';
+import StartButton from './UI/Buttons/StartButton';
+import PauseButton from './UI/Buttons/PauseButton';
 import './App.css';
+import Card from './UI/Card/Card';
+import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
 
 function App() {
-  const [startTime, setStartTime] = useState(null);
-  const [stopTime, setStopTime] = useState(null);
+  const [timer, setTimer] = useState(null);
+  const [currentTime, setCurrentTime] = useState(null);
 
   const handleStartTime = () => {
-    setStartTime(Date.now());
+    setTimer(Date.now());
   };
   const handleStopTime = () => {
-    setStopTime(startTime);
+    setCurrentTime(timer);
   };
   useEffect(() => {
-    setTimeout(handleStartTime, 10000000);
+    setTimeout(handleStartTime, 100000);
   }, [handleStartTime, handleStopTime]);
 
+  //start time
+  //elapsed time
+  //calculo para milisegundos
+  //calculo para segundos
+  //calculo para minutos
   return (
     <div className="App">
       <div>Stopwatch App</div>
-      <button>{startTime}</button>
-      <button onClick={handleStopTime}>{`Timer: ${stopTime}`}</button>
+      <Card>
+        <div>{timer}</div>
+        <RecordedLaps />
+      </Card>
+      {/* <button>{`Current Time: ${startTime}`}</button>
+      <button onClick={handleStopTime}>{`Timer: ${stopTime}`}</button> */}
       {/*Criar divs com as laps do timer*/}
       {/* <button onClick={() => handleCount()}>{count}</button> */}
+      <Card>
+        <StartButton />
+        <PauseButton />
+      </Card>
     </div>
   );
 }
