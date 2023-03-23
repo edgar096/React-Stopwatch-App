@@ -9,6 +9,7 @@ function App() {
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
   const [recordedLaps, setRecordedLaps] = useState([]);
+  //const [timerRunning, setIsTimerRunning] = useState(false);
 
   const handleRecordedLaps = () => {
     setRecordedLaps([
@@ -27,16 +28,25 @@ function App() {
     setRecordedLaps([]);
   };
 
-  let secondsPassed = 0;
+  let millisecondsPassed,
+    secondsPassed,
+    minutesPassed,
+    hoursPassed = 0;
   if (startTime != null && now != null) {
-    secondsPassed = (now - startTime) / 1000;
+    millisecondsPassed = parseInt(((now - startTime) % 1000) / 10);
+    secondsPassed = parseInt(((now - startTime) / 1000) % 60);
+    minutesPassed = parseInt(((now - startTime) / (1000 * 60)) % 60);
+    hoursPassed = parseInt(((now - startTime) / (1000 * 60 * 60)) % 24);
   }
-
+  // const milliseconds = parseInt((time%1000)/10)
+  // const seconds = parseInt((time/1000)%60)
+  // const minutes = parseInt((time/(1000*60))%60)
+  // const hour = parseInt((time/(1000*60*60))%24);
   return (
     <div className="App">
       <div>Stopwatch App</div>
       <Card>
-        <div>{secondsPassed}</div>
+        <div>{`${hoursPassed}:${minutesPassed}:${secondsPassed}:${hoursPassed}:`}</div>
         <RecordedLaps laps={recordedLaps} />
       </Card>
       <Card>
