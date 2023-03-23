@@ -1,4 +1,4 @@
-const TimerButton = ({ handleAddValue }) => {
+const LapButton = ({ handleAddValue }) => {
   return (
     <div>
       <button onClick={handleAddValue}>Add Timer</button>
@@ -6,4 +6,4 @@ const TimerButton = ({ handleAddValue }) => {
   );
 };
 
-export default TimerButton;
+export default LapButton;

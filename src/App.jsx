@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import StartButton from './UI/Buttons/StartButton';
-import TimerButton from './UI/Buttons/TimerButton';
+import LapButton from './UI/Buttons/LapButton';
 import './App.css';
 import Card from './UI/Card/Card';
+import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
 
 function App() {
   const [startTime, setStartTime] = useState(null);
@@ -36,15 +37,11 @@ function App() {
       <div>Stopwatch App</div>
       <Card>
         <div>{secondsPassed}</div>
-        <ul>
-          {recordedLaps.map((lap) => (
-            <li id={lap.id}>{lap.value}</li>
-          ))}
-        </ul>
+        <RecordedLaps laps={recordedLaps} />
       </Card>
       <Card>
         <StartButton handleStart={handleStart} />
-        <TimerButton handleAddValue={handleRecordedLaps} />
+        <LapButton handleAddValue={handleRecordedLaps} />
       </Card>
     </div>
   );
