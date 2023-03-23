@@ -10,17 +10,20 @@ const style = {
 };
 const RecordedLaps = ({ laps }) => {
   return (
-    <ul>
+    <List>
       {laps.map((lap) => (
-        <li key={lap.id}>{lap.value}</li>
+        <ListItem key={lap.id}>
+          {lap.value}
+          <Divider />
+        </ListItem>
       ))}
-    </ul>
+    </List>
     // <List sx={style} component="nav" aria-label="mailbox folders">
     //   {laps.map((lap) => {
     //     <ListItem>
     //       <ListItemText key={lap.id} primary={lap.value} />;
     //     </ListItem>;
-    //     <Divider />;
+    //     ;
     //   })}
     // </List>
   );
