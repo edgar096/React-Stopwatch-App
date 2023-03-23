@@ -4,10 +4,12 @@ import AddIcon from '@mui/icons-material/Add';
 const LapButton = ({ handleAddValue }) => {
   return (
     <div>
-      <Button variant="contained" onClick={handleAddValue}>
-        Add Timer
-      </Button>
-      <Fab color="primary" aria-label="add">
+      <Fab
+        size="small"
+        color="primary"
+        aria-label="add"
+        onClick={handleAddValue}
+      >
         <AddIcon />
       </Fab>
     </div>
