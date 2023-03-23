@@ -14,7 +14,7 @@ function App() {
   const handleRecordedLaps = () => {
     setRecordedLaps([
       ...recordedLaps,
-      { id: crypto.randomUUID(), value: secondsPassed },
+      { id: crypto.randomUUID(), value: completeTimer },
     ]);
     console.log(recordedLaps);
   };
@@ -32,11 +32,13 @@ function App() {
     secondsPassed,
     minutesPassed,
     hoursPassed = 0;
+  let completeTimer = 0;
   if (startTime != null && now != null) {
     millisecondsPassed = parseInt(((now - startTime) % 1000) / 10);
     secondsPassed = parseInt(((now - startTime) / 1000) % 60);
     minutesPassed = parseInt(((now - startTime) / (1000 * 60)) % 60);
     hoursPassed = parseInt(((now - startTime) / (1000 * 60 * 60)) % 24);
+    completeTimer = `${hoursPassed}:${minutesPassed}:${secondsPassed}:${millisecondsPassed}`;
   }
   // const milliseconds = parseInt((time%1000)/10)
   // const seconds = parseInt((time/1000)%60)
@@ -46,7 +48,7 @@ function App() {
     <div className="App">
       <div>Stopwatch App</div>
       <Card>
-        <div>{`${hoursPassed}:${minutesPassed}:${secondsPassed}:${hoursPassed}:`}</div>
+        <div>{completeTimer}</div>
         <RecordedLaps laps={recordedLaps} />
       </Card>
       <Card>
