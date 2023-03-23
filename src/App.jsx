@@ -31,8 +31,8 @@ function App() {
   let millisecondsPassed,
     secondsPassed,
     minutesPassed,
-    hoursPassed = 0;
-  let completeTimer = 0;
+    hoursPassed,
+    completeTimer = 0;
   if (startTime != null && now != null) {
     millisecondsPassed = parseInt(((now - startTime) % 1000) / 10);
     secondsPassed = parseInt(((now - startTime) / 1000) % 60);
@@ -40,10 +40,6 @@ function App() {
     hoursPassed = parseInt(((now - startTime) / (1000 * 60 * 60)) % 24);
     completeTimer = `${hoursPassed}:${minutesPassed}:${secondsPassed}:${millisecondsPassed}`;
   }
-  // const milliseconds = parseInt((time%1000)/10)
-  // const seconds = parseInt((time/1000)%60)
-  // const minutes = parseInt((time/(1000*60))%60)
-  // const hour = parseInt((time/(1000*60*60))%24);
   return (
     <div className="App">
       <div>Stopwatch App</div>
