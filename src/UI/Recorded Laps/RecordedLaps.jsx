@@ -1,3 +1,5 @@
+import { List } from '@mui/material';
+
 const RecordedLaps = ({ laps }) => {
   return (
     <ul>

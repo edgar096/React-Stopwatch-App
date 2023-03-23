@@ -1,7 +1,11 @@
-import styles from './Card.module.css';
+import Stack from '@mui/material/Stack';
 
 const Card = ({ children }) => {
-  return <div className={styles.buttons}>{children}</div>;
+  return (
+    <Stack direction="row" spacing={2}>
+      {children}
+    </Stack>
+  );
 };
 
 export default Card;
