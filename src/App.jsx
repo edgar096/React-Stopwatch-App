@@ -30,6 +30,12 @@ function App() {
     setRecordedLaps([]);
   };
 
+  const handleStop = () => {
+    setIsDisabled(true);
+    setIsClicked(false);
+    setStartTime(null);
+  };
+
   let millisecondsPassed,
     secondsPassed,
     minutesPassed,
@@ -50,7 +56,11 @@ function App() {
         <RecordedLaps laps={recordedLaps} />
       </Card>
       <Card>
-        <StartButton isClicked={isClicked} handleStart={handleStart} />
+        <StartButton
+          isClicked={isClicked}
+          handleStart={handleStart}
+          handleStop={handleStop}
+        />
         <LapButton
           isDisabled={isDisabled}
           handleAddValue={handleRecordedLaps}
