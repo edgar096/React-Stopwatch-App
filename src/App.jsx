@@ -20,7 +20,6 @@ function App() {
       ...recordedLaps,
       { id: crypto.randomUUID(), value: completeTimer },
     ]);
-    console.log(unixTimer);
   };
 
   const handleStart = () => {
@@ -49,10 +48,11 @@ function App() {
     completeTimer = null;
   if (startTime != null && now != null) {
     unixTimer = now - startTime;
-    millisecondsPassed = parseInt((unixTimer % 1000) / 10);
-    secondsPassed = parseInt((unixTimer / 1000) % 60);
-    minutesPassed = parseInt((unixTimer / (1000 * 60)) % 60);
-    hoursPassed = parseInt((unixTimer / (1000 * 60 * 60)) % 24);
+    millisecondsPassed = `0${parseInt((unixTimer % 1000) / 10)}`.slice(-2);
+    secondsPassed = `0${parseInt((unixTimer / 1000) % 60)}`.slice(-2);
+    minutesPassed = `0${parseInt((unixTimer / (1000 * 60)) % 60)}`.slice(-2);
+    hoursPassed = `0${parseInt((unixTimer / (1000 * 60 * 60)) % 24)}`.slice(-2);
+
     completeTimer = `${hoursPassed}:${minutesPassed}:${secondsPassed}:${millisecondsPassed}`;
   }
   return (
