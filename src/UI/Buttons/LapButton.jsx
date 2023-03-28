@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-const LapButton = ({ handleAddValue }) => {
+const LapButton = ({ handleAddValue, isDisabled }) => {
   return (
     <div>
       <Fab
@@ -9,6 +9,7 @@ const LapButton = ({ handleAddValue }) => {
         color="primary"
         aria-label="add"
         onClick={handleAddValue}
+        disabled={isDisabled}
       >
         <AddIcon />
       </Fab>

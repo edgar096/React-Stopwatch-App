@@ -10,6 +10,7 @@ function App() {
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
   const [recordedLaps, setRecordedLaps] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(true);
   const handleRecordedLaps = () => {
     setRecordedLaps([
       ...recordedLaps,
@@ -19,6 +20,7 @@ function App() {
   };
 
   const handleStart = () => {
+    setIsDisabled(false);
     setIsClicked(true);
     setStartTime(Date.now());
     setNow(Date.now());
@@ -49,7 +51,10 @@ function App() {
       </Card>
       <Card>
         <StartButton isClicked={isClicked} handleStart={handleStart} />
-        <LapButton handleAddValue={handleRecordedLaps} />
+        <LapButton
+          isDisabled={isDisabled}
+          handleAddValue={handleRecordedLaps}
+        />
       </Card>
     </div>
   );
