@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import StartButton from './UI/Buttons/StartButton';
 import LapButton from './UI/Buttons/LapButton';
 import './App.css';
@@ -20,7 +20,7 @@ function App() {
       ...recordedLaps,
       { id: crypto.randomUUID(), value: completeTimer },
     ]);
-    console.log(recordedLaps);
+    console.log(unixTimer);
   };
 
   const handleStart = () => {
@@ -45,12 +45,14 @@ function App() {
     secondsPassed,
     minutesPassed,
     hoursPassed,
-    completeTimer = 0;
+    unixTimer,
+    completeTimer = null;
   if (startTime != null && now != null) {
-    millisecondsPassed = parseInt(((now - startTime) % 1000) / 10);
-    secondsPassed = parseInt(((now - startTime) / 1000) % 60);
-    minutesPassed = parseInt(((now - startTime) / (1000 * 60)) % 60);
-    hoursPassed = parseInt(((now - startTime) / (1000 * 60 * 60)) % 24);
+    unixTimer = now - startTime;
+    millisecondsPassed = parseInt((unixTimer % 1000) / 10);
+    secondsPassed = parseInt((unixTimer / 1000) % 60);
+    minutesPassed = parseInt((unixTimer / (1000 * 60)) % 60);
+    hoursPassed = parseInt((unixTimer / (1000 * 60 * 60)) % 24);
     completeTimer = `${hoursPassed}:${minutesPassed}:${secondsPassed}:${millisecondsPassed}`;
   }
   return (
