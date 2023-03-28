@@ -4,6 +4,10 @@ import LapButton from './UI/Buttons/LapButton';
 import './App.css';
 import Card from './UI/Card/Card';
 import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -34,6 +38,7 @@ function App() {
     setIsDisabled(true);
     setIsClicked(false);
     setStartTime(null);
+    setRecordedLaps([]);
   };
 
   let millisecondsPassed,
@@ -70,7 +75,4 @@ function App() {
   );
 }
 
-//App structure:
-//--Two Buttons: start and pause/resume
-//--Lap Button(?): takes snapshot of time
 export default App;

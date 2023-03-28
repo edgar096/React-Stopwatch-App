@@ -1,17 +1,16 @@
-import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import TimerIcon from '@mui/icons-material/Timer';
 const LapButton = ({ handleAddValue, isDisabled }) => {
   return (
     <div>
       <Fab
-        size="small"
+        // size="small"
         color="primary"
         aria-label="add"
         onClick={handleAddValue}
         disabled={isDisabled}
       >
-        <AddIcon />
+        <TimerIcon />
       </Fab>
     </div>
   );
