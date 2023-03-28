@@ -6,11 +6,10 @@ import Card from './UI/Card/Card';
 import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
 
 function App() {
+  const [isClicked, setIsClicked] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
   const [recordedLaps, setRecordedLaps] = useState([]);
-  //const [timerRunning, setIsTimerRunning] = useState(false);
-
   const handleRecordedLaps = () => {
     setRecordedLaps([
       ...recordedLaps,
@@ -20,6 +19,7 @@ function App() {
   };
 
   const handleStart = () => {
+    setIsClicked(true);
     setStartTime(Date.now());
     setNow(Date.now());
     setInterval(() => {
@@ -48,7 +48,7 @@ function App() {
         <RecordedLaps laps={recordedLaps} />
       </Card>
       <Card>
-        <StartButton handleStart={handleStart} />
+        <StartButton isClicked={isClicked} handleStart={handleStart} />
         <LapButton handleAddValue={handleRecordedLaps} />
       </Card>
     </div>

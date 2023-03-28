@@ -1,11 +1,18 @@
 import Button from '@mui/material/Button';
+import { useState } from 'react';
 
-const StartButton = ({ handleStart }) => {
+const StartButton = ({ handleStart, isClicked }) => {
   return (
     <div>
-      <Button variant="contained" onClick={handleStart}>
-        Start Timer
-      </Button>
+      {isClicked ? (
+        <Button variant="contained" onClick={handleStart}>
+          Reset Timer
+        </Button>
+      ) : (
+        <Button variant="contained" onClick={handleStart}>
+          Start Timer
+        </Button>
+      )}
     </div>
   );
 };
