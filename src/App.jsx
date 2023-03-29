@@ -61,12 +61,12 @@ function App() {
       <Typography gutterBottom variant="h4" component="div">
         Stopwatch App
       </Typography>
+
+      <Typography gutterBottom variant="h4" component="div">
+        {completeTimer}
+      </Typography>
       <RecordedLaps laps={recordedLaps} />
-      <Card>
-        <Typography gutterBottom variant="h4" component="div">
-          {completeTimer}
-        </Typography>
-      </Card>
+
       <Card>
         <StartButton
           isClicked={isClicked}
