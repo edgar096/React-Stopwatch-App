@@ -1,6 +1,7 @@
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
 const style = {
   width: '100%',
@@ -9,16 +10,16 @@ const style = {
 };
 const RecordedLaps = ({ laps }) => {
   return (
-    <>
-      <List>
-        {laps.map((lap) => (
-          <ListItem key={lap.id}>
+    <List>
+      {laps.map((lap) => (
+        <ListItem key={lap.id}>
+          <Typography variant="body1" gutterBottom>
             {lap.value}
-            <Divider />
-          </ListItem>
-        ))}
-      </List>
-    </>
+          </Typography>
+          <Divider />
+        </ListItem>
+      ))}
+    </List>
   );
 };
 export default RecordedLaps;

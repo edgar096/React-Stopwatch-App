@@ -8,6 +8,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import Typography from '@mui/material/Typography';
 
 function App() {
   const [isClicked, setIsClicked] = useState(false);
@@ -57,10 +58,14 @@ function App() {
   }
   return (
     <div className="App">
-      <div>Stopwatch App</div>
+      <Typography gutterBottom variant="h4" component="div">
+        Stopwatch App
+      </Typography>
+      <RecordedLaps laps={recordedLaps} />
       <Card>
-        <div>{completeTimer}</div>
-        <RecordedLaps laps={recordedLaps} />
+        <Typography gutterBottom variant="h4" component="div">
+          {completeTimer}
+        </Typography>
       </Card>
       <Card>
         <StartButton

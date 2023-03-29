@@ -3,13 +3,7 @@ import Divider from '@mui/material/Divider';
 
 const Card = ({ children }) => {
   return (
-    <Stack
-      direction="row"
-      divider={<Divider orientation="vertical" flexItem />}
-      spacing={2}
-      alignItems="center"
-      justify="flex-end"
-    >
+    <Stack direction="row" spacing={2} alignItems="center" justify="flex-end">
       {children}
     </Stack>
   );
