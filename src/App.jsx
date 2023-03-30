@@ -9,11 +9,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Typography from '@mui/material/Typography';
+import PauseButton from './UI/Buttons/PauseButton';
 
 function App() {
   const [isClicked, setIsClicked] = useState(false);
-  const [startTime, setStartTime] = useState(null);
-  const [now, setNow] = useState(null);
+  const [startTime, setStartTime] = useState(0);
+  const [now, setNow] = useState(0);
   const [recordedLaps, setRecordedLaps] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const handleRecordedLaps = () => {
@@ -34,13 +35,6 @@ function App() {
     setRecordedLaps([]);
   };
 
-  const handleStop = () => {
-    setIsDisabled(true);
-    setIsClicked(false);
-    setStartTime(null);
-    setRecordedLaps([]);
-  };
-
   let millisecondsPassed,
     secondsPassed,
     minutesPassed,
@@ -56,6 +50,13 @@ function App() {
 
     completeTimer = `${hoursPassed}:${minutesPassed}:${secondsPassed}:${millisecondsPassed}`;
   }
+  const handleStop = () => {
+    setIsDisabled(true);
+    setIsClicked(false);
+    setStartTime(null);
+    setRecordedLaps([]);
+  };
+
   return (
     <div className="App">
       <Typography gutterBottom variant="h4" component="div">
@@ -73,6 +74,7 @@ function App() {
           handleStart={handleStart}
           handleStop={handleStop}
         />
+        <PauseButton />
         <LapButton
           isDisabled={isDisabled}
           handleAddValue={handleRecordedLaps}
