@@ -4,12 +4,12 @@ const StartButton = ({ handleStart, handleStop, isClicked }) => {
   return (
     <div>
       {isClicked ? (
-        <Button variant="contained" onClick={handleStop}>
-          Reset Timer
+        <Button variant="contained" onClick={handleStart}>
+          Start
         </Button>
       ) : (
-        <Button variant="contained" onClick={handleStart}>
-          Start Timer
+        <Button variant="contained" onClick={handleStop}>
+          Reset
         </Button>
       )}
     </div>

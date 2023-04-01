@@ -4,7 +4,6 @@ const LapButton = ({ handleAddValue, isDisabled }) => {
   return (
     <div>
       <Fab
-        // size="small"
         color="primary"
         aria-label="add"
         onClick={handleAddValue}
