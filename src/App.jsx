@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 import Typography from '@mui/material/Typography';
-import PauseButton from './UI/Buttons/PauseButton';
 import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
-import Card from './UI/Card/Card';
 import StartButton from './UI/Buttons/StartButton';
 import LapButton from './UI/Buttons/LapButton';
 import './App.css';
@@ -11,7 +9,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import CardWrapper from './UI/Card/CardWrapper';
-
+import CardFooter from './UI/Card/CardFooter';
 function App() {
   const [isClicked, setIsClicked] = useState(true);
   const [startTime, setStartTime] = useState(0);
@@ -19,14 +17,6 @@ function App() {
   const [recordedLaps, setRecordedLaps] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const intervalRef = useRef(null);
-
-  const handleRecordedLaps = () => {
-    setRecordedLaps([
-      ...recordedLaps,
-      { id: crypto.randomUUID(), value: completeTimer },
-    ]);
-    console.log(recordedLaps);
-  };
 
   let millisecondsPassed,
     secondsPassed,
@@ -59,7 +49,13 @@ function App() {
     setStartTime(null);
     clearInterval(intervalRef.current);
   };
-
+  const handleRecordedLaps = () => {
+    setRecordedLaps([
+      ...recordedLaps,
+      { id: crypto.randomUUID(), value: completeTimer },
+    ]);
+    console.log(recordedLaps);
+  };
   return (
     <div className="App">
       <CardWrapper text="Stopwatch">
@@ -69,18 +65,17 @@ function App() {
       </CardWrapper>
 
       <RecordedLaps laps={recordedLaps} />
-      <CardWrapper>
+      <CardFooter>
         <StartButton
           isClicked={isClicked}
           handleStart={handleStart}
           handleStop={handleStop}
         />
-        {/* <PauseButton /> */}
         <LapButton
           isDisabled={isDisabled}
           handleAddValue={handleRecordedLaps}
         />
-      </CardWrapper>
+      </CardFooter>
     </div>
   );
 }
