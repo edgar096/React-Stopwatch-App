@@ -1,15 +1,9 @@
 import { useRef, useState } from 'react';
-import Typography from '@mui/material/Typography';
 import RecordedLaps from './UI/Recorded Laps/RecordedLaps';
 import StartButton from './UI/Buttons/StartButton';
 import LapButton from './UI/Buttons/LapButton';
 import './App.css';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
 import CardWrapper from './UI/Card/CardWrapper';
-import CardFooter from './UI/Card/CardFooter';
 function App() {
   const [isClicked, setIsClicked] = useState(true);
   const [startTime, setStartTime] = useState(0);
@@ -58,14 +52,13 @@ function App() {
   };
   return (
     <div className="App">
-      <CardWrapper text="Stopwatch">
-        <Typography gutterBottom variant="h4" component="div">
-          {completeTimer}
-        </Typography>
+      <CardWrapper>
+        <h1>Stopwatch App</h1>
+        {completeTimer}
       </CardWrapper>
 
       <RecordedLaps laps={recordedLaps} />
-      <CardFooter>
+      <CardWrapper>
         <StartButton
           isClicked={isClicked}
           handleStart={handleStart}
@@ -75,7 +68,7 @@ function App() {
           isDisabled={isDisabled}
           handleAddValue={handleRecordedLaps}
         />
-      </CardFooter>
+      </CardWrapper>
     </div>
   );
 }
