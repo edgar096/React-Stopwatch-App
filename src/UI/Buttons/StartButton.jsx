@@ -1,18 +1,12 @@
-import Button from '@mui/material/Button';
-
 const StartButton = ({ handleStart, handleStop, isClicked }) => {
   return (
-    <div>
+    <>
       {isClicked ? (
-        <Button variant="contained" onClick={handleStart}>
-          Start
-        </Button>
+        <button onClick={handleStart}>Start</button>
       ) : (
-        <Button variant="contained" onClick={handleStop}>
-          Reset
-        </Button>
+        <button onClick={handleStop}>Reset</button>
       )}
-    </div>
+    </>
   );
 };
 export default StartButton;
